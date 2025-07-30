@@ -1,0 +1,21 @@
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+x509_extensions    = req_ext
+prompt             = no
+
+[ req_distinguished_name ]
+C  = AR
+ST = Buenos Aires
+L  = Buenos Aires
+O  = MiEmpresa
+CN = localhost
+
+[ req_ext ]
+subjectAltName = @alt_names
+basicConstraints = critical, CA:FALSE
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+
+[ alt_names ]
+DNS.1 = localhost

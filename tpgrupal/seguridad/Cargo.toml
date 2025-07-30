@@ -1,0 +1,12 @@
+[package]
+name = "seguridad"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "seguridad"
+path = "src/lib.rs"
+
+[dependencies]
+rustls = "0.20.0"
+rustls-pemfile = "1.0"

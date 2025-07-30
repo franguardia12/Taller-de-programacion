@@ -1,0 +1,12 @@
+[workspace]
+
+members = [
+    "cliente-servidor",
+    "protocolo",
+    "interfaz",
+    "bdd",
+    "consola", 
+    "seguridad", 
+    "init",
+]
+resolver = "2"

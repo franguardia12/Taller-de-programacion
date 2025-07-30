@@ -1,0 +1,15 @@
+[package]
+name = "consola"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+chrono = "0.4"
+haversine-rs = "0.3.0"
+cliente-servidor = { path = "../cliente-servidor" }
+interfaz = { path = "../interfaz" }
+protocolo = { path = "../protocolo" }
+
+[lints.clippy]
+too_many_lines = "deny"

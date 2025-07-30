@@ -1,0 +1,13 @@
+[package]
+name = "cliente-servidor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+protocolo = { path = "../protocolo"}
+seguridad = { path = "../seguridad"}
+rand = "0.8.4"
+bdd = { path = "../bdd"}
+rustls = "0.20.0"
+rustls-pemfile = "1.0"
+murmur3 = "0.5.1"

@@ -1,0 +1,260 @@
+services:
+  node1:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node1
+    environment:
+      - NODO_IP=node1
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.1 2>&1 | tee /app/logs/node1.log"]
+    ports:
+      - "9042:9042"
+      - "9043:9043"
+      - "9044:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node1
+
+
+  node2:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node2
+    environment:
+      - NODO_IP=node2
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.2 2>&1 | tee /app/logs/node2.log"]
+    ports:
+      - "9142:9042"
+      - "9143:9043"
+      - "9144:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node2
+
+  node3:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node3
+    environment:
+      - NODO_IP=node3
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.3 2>&1 | tee /app/logs/node3.log"]
+    ports:
+      - "9242:9042"
+      - "9243:9043"
+      - "9244:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node3
+
+  node4:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node4
+    environment:
+      - NODO_IP=node4
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.4 2>&1 | tee /app/logs/node4.log"]
+    ports:
+      - "9342:9042"
+      - "9343:9043"
+      - "9344:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node4
+
+  node5:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node5
+    environment:
+      - NODO_IP=node5
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.5 2>&1 | tee /app/logs/node5.log"]
+    ports:
+      - "9442:9042"
+      - "9443:9043"
+      - "9444:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node5
+  
+  node6:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node6
+    environment:
+      - NODO_IP=node6
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.6 2>&1 | tee /app/logs/node6.log"]
+    ports:
+      - "9542:9042"
+      - "9543:9043"
+      - "9544:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node6
+
+  node7:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node7
+    environment:
+      - NODO_IP=node7
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.7 2>&1 | tee /app/logs/node7.log"]
+    ports:
+      - "9642:9042"
+      - "9643:9043"
+      - "9644:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node7
+
+  node8:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: cliente-servidor 
+    container_name: cassandra_node8
+    environment:
+      - NODO_IP=node8
+    command: ["/bin/sh", "-c", "/usr/local/bin/cliente-servidor 127.0.0.8 2>&1 | tee /app/logs/node8.log"]
+    ports:
+      - "9742:9042"
+      - "9743:9043"
+      - "9744:9044"
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+      - "./logs:/app/logs"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - node8
+
+
+  init:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BIN_NAME: init
+    container_name: init_service
+    command: ["/usr/local/bin/init"]
+    volumes:
+      - "./bdd/src:/app/bdd/src"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9042"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: on-failure
+    networks:
+      my-net:
+        aliases:
+          - init
+
+
+networks:
+  my-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+    driver_opts:
+      com.docker.network.bridge.name: cassandra_net
+      com.docker.network.driver.mtu: 1450
+
